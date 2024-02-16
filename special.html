@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sale and Purchase - Dashboard</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="dasheets/css/style.css" rel="stylesheet">
+    <style>
+        .sidebar-menu {
+            position: absolute;
+            float: left;
+            width: 220px;
+            top: 0px;
+            left: 0px;
+            bottom: 0;
+            background-color: #202121;
+            color: #aaabae;
+            z-index: 999;
+        }
+
+        #menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        #menu li {
+            position: relative;
+            margin: 0;
+            font-size: 12px;
+            padding: 0;
+        }
+
+        #menu li ul {
+            opacity: 0;
+            height: 0px;
+        }
+
+        #menu li a {
+            position: relative;
+            display: block;
+            padding: 13px 20px;
+            color: #FFFFFF;
+            white-space: nowrap;
+            z-index: 2;
+            font-size: 1.12em;
+            text-align: center;
+            font-family: 'Carrois Gothic', sans-serif;
+        }
+
+        #menu li a:hover {
+            color: #fdbb30;
+            transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
+        }
+
+        #menu li.active>a {
+            background-color: #2b303a;
+            color: #ffffff;
+        }
+
+        #menu ul li {
+            background-color: #202121;
+        }
+
+        #menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #menu li ul {
+            position: absolute;
+            visibility: hidden;
+            left: 100%;
+            top: 20px;
+            background-color: #2b303a;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.1s linear;
+            border-top: 1px solid rgba(69, 74, 84, 0.7);
+        }
+
+        #menu li:hover>ul {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        #menu li li ul {
+            right: 100%;
+            visibility: hidden;
+            top: -1px;
+            opacity: 0;
+            transition: opacity 0.1s linear;
+        }
+
+        #menu li li:hover ul {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        #menu .fa {
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            display: block;
+        }
+
+        .menu {
+            padding: 4.2em 0em 0em 0em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid position-relative bg-white d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Sidebar Start -->
+        <div class="sidebar-menu">
+            <div class="logo"> <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a href="#">
+                    <span id="logo"></span>
+                    <!--<img id="logo" src="" alt="Logo"/>-->
+                </a> </div>
+            <div class="menu">
+                <ul id="menu">
+                    <li id="menu-home"><a href="index.html"><i class="fa fa-tachometer"></i><span>Dashboard</span></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-cogs"></i><span>Components</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul>
+                            <li><a href="grids.html">Grids</a></li>
+                            <li><a href="portlet.html">Portlets</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-comunicacao"><a href="#"><i class="fa fa-book nav_icon"></i><span>Element</span><span
+                                class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul id="menu-comunicacao-sub">
+                            <li id="menu-mensagens" style="width: 120px"><a href="buttons.html">Buttons</a>
+                            </li>
+                            <li id="menu-arquivos"><a href="typography.html">Typography</a></li>
+                            <li id="menu-arquivos"><a href="icons.html">Icons</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="maps.html"><i class="fa fa-map-marker"></i><span>Maps</span></a></li>
+                    <li id="menu-academico"><a href="#"><i class="fa fa-file-text"></i><span>Pages</span><span
+                                class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-boletim"><a href="login.html">Login</a></li>
+                            <li id="menu-academico-avaliacoes"><a href="signup.html">Sign Up</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="charts.html"><i class="fa fa-bar-chart"></i><span>Charts</span></a></li>
+                    <li><a href="#"><i class="fa fa-envelope"></i><span>Mailbox</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="inbox.html">Inbox</a></li>
+                            <li id="menu-academico-boletim"><a href="inbox-details.html">Compose email</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="fa fa-cog"></i><span>System</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="404.html">404</a></li>
+                            <li id="menu-academico-boletim"><a href="blank.html">Blank</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="fa fa-shopping-cart"></i><span>E-Commerce</span><span
+                                class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="product.html">Product</a></li>
+                            <li id="menu-academico-boletim"><a href="price.html">Price</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- <div class="sidebar pb-3">
+            <nav class="navbar navbar-light">
+                <a href="dashboard.html" class="navbar-brand ms-3">
+                    <h3 class="text-primary">LOGO</h3>
+                </a>
+
+                <div class="navbar-nav ">
+                    <a href="dashboard.html" class="nav-item nav-link active text-center">
+                        <i class="bi bi-grid fs-4"></i>
+                        <p class="pt-1 mb-0">Dashboard</p>
+                    </a>
+
+                    <a href="" id="navbar-toggler" class="nav-item nav-link text-center">
+                        <i class="bi bi-box-seam fs-4"></i>
+                        <p class="pt-1 mb-0">Products</p>
+                    </a>
+                    <a id="navbar-toggler2" class="nav-item nav-link text-center">
+                        <i class="bi bi-cart fs-4"></i>
+                        <p class="pt-1 mb-0">Sales</p>
+                    </a>
+                    <a href="#" id="navbar-toggler3" class="nav-item nav-link text-center">
+                        <i class="bi bi-file-earmark-text fs-4"></i>
+                        <p class="pt-1 mb-0">Purchase</p>
+                    </a>
+                    <a href="#" id="navbar-toggler4" class="nav-item nav-link text-center">
+                        <i class="bi bi-bag fs-4"></i>
+                        <p class="pt-1 mb-0">Inventory</p>
+                    </a>
+                    <a href="#" id="navbar-toggler5" class="nav-item nav-link text-center">
+                        <i class="bi bi-person fs-4"></i>
+                        <p class="pt-1 mb-0">Customer</p>
+                    </a>
+                    <a href="#" id="navbar-toggler6" class="nav-item nav-link text-center">
+                        <i class="bi bi-house fs-4"></i>
+                        <p class="pt-1 mb-0">Vendors</p>
+                    </a>
+                    <a href="#" class="nav-item nav-link text-center">
+                        <i class="bi bi-clipboard-data fs-4"></i>
+                        <p class="pt-1 mb-0">Report</p>
+                    </a>
+                    <a href="setting.html" id="navbar-toggler7" class="nav-item nav-link text-center">
+                        <i class="bi bi-gear fs-4"></i>
+                        <p class="pt-1 mb-0">Setting</p>
+                    </a>
+                </div>
+            </nav>
+        </div> -->
+
+        <!-- <div class="positon-relative">
+            <div id="product" style="display: none;">
+                <ul class="list-unstyled m-0 py-3 px-4 rounded-5">
+                    <li class="mb-2"><a href="createproduct.html"
+                            class="text-decoration-none nav-item nav-link fs-6"><img src="dasheets/img/menu.svg"
+                                class="img-fluid me-2" alt="">Create Product</a></li>
+                    <li class="mb-2"><a href="product.html" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">All Product</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">Print Label</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">Category</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">Brand</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">Unit</a></li>
+                </ul>
+            </div>
+            <div id="sale" style="display: none;">
+                <ul class="list-unstyled m-0 py-3 px-4 rounded-5">
+                    <li class="mb-2"><a href="sale.html" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">All Sale</a></li>
+                    <li class="mb-2"><a href="createsale.html" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">Create Sale</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">Create Sale Order</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">POS</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">Create Sale Return</a></li>
+                </ul>
+            </div>
+            <div id="purchase" style="display: none;">
+                <ul class="list-unstyled m-0 py-3 px-4 rounded-5">
+                    <li class="mb-2"><a href="purchase.html" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">All Purchase</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">Create Purchase</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">Create Purchase Order</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">Create Purchase Return</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="inventory" style="display: none;">
+                <ul class="list-unstyled m-0 py-3 px-4 rounded-5">
+                    <li class="mb-2"><a href="inventory.html" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">All Inventory</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">Recieve Inventory</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">Create Bill</a></li>
+                </ul>
+            </div>
+            <div id="customer" style="display: none;">
+                <ul class="list-unstyled m-0 py-3 px-4 rounded-5">
+                    <li class="mb-2"><a href="customer.html" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">All Customer</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">Create Customer</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">Blacklist Customer</a></li>
+                </ul>
+            </div>
+            <div id="vendor" style="display: none;">
+                <ul class="list-unstyled m-0 py-3 px-4 rounded-5">
+                    <li class="mb-2"><a href="vendor.html" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">All Vendor</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">Create Vendors </a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">Blacklist Vendors</a></li>
+                </ul>
+            </div>
+            <div id="setting" style="display: none;">
+                <ul class="list-unstyled m-0 py-3 px-4 rounded-5">
+                    <li class="mb-2"><a href="setting.html" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">System Setting</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">User Permission</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">SMS Setting</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">Email Setting</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">POS Setting</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">Payment Setting</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none nav-item nav-link fs-6"><img
+                                src="dasheets/img/menu.svg" class="img-fluid me-2" alt="">Tax Setting</a></li>
+                </ul>
+            </div>
+        </div> -->
+        <!-- Sidebar End -->
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <nav class="navbar navbar-expand border-bottom bg-white navbar-light sticky-top px-4 py-0">
+                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0">LOGO</h2>
+                </a>
+                <a href="#" class="sidebar-toggler text-decoration-none flex-shrink-0 align-items-center d-inline-flex">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <form class="d-none d-md-flex ms-4">
+                    <select class="form-control form-select rounded-5">
+                        <option>Select Warehouse</option>
+                        <option>Warehouse 1</option>
+                        <option>Warehouse 2</option>
+                        <option>Warehouse 3</option>
+                    </select>
+                    <!-- <input class="form-control border-0" type="search" placeholder="Search"> -->
+                </form>
+                <div class="navbar-nav align-items-center ms-auto">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                            <i class="fa fa-bell align-items-center d-inline-flex"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Profile updated</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">New user added</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Password changed</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-center">See all notifications</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img class="rounded-circle me-lg-2" src="dasheets/img/user.jpg" alt=""
+                                style="width: 40px; height: 40px;">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="profile.html" class="dropdown-item">My Profile</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                            <a href="#" class="dropdown-item">Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- Navbar End -->
+
+            <!-- Sale & Revenue Start -->
+            <div class="container-fluid px-4">
+                <div class="row">
+                    <div class="col-md-6 col-xl-3 mt-4">
+                        <div class="shadow border rounded d-flex align-items-center p-4">
+                            <img src="dasheets/img/content-sale.svg" class="img-fluid text-center" alt="">
+                            <div class="ms-3">
+                                <p class="mb-1 fw-bold fs-6">Sale</p>
+                                <h6 class="mb-0 sales-amount">1000$</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3 mt-4">
+                        <div class="shadow border rounded d-flex align-items-center p-4">
+                            <img src="dasheets/img/content-bag.svg" class="img-fluid text-center" alt="">
+                            <div class="ms-3">
+                                <p class="mb-1 fw-bold fs-6">Purchase</p>
+                                <h6 class="mb-0 sales-amount">1000$</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3 mt-4">
+                        <div class="shadow border rounded d-flex align-items-center p-4">
+                            <img src="dasheets/img/content-right-arrow.svg" class="img-fluid text-center" alt="">
+                            <div class="ms-3">
+                                <p class="mb-1 fw-bold fs-6">Sales Return</p>
+                                <h6 class="mb-0 sales-amount">1000$</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3 mt-4">
+                        <div class="shadow border rounded d-flex align-items-center p-4">
+                            <img src="dasheets/img/content-left-arrow.svg" class="img-fluid text-center" alt="">
+                            <div class="ms-3">
+                                <p class="mb-1 fw-bold fs-6">Purchase Return</p>
+                                <h6 class="mb-0 sales-amount">1000$</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sale & Revenue End -->
+
+            <!-- Sales Chart Start -->
+            <div class="container-fluid px-4">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 mt-4">
+                        <div class="bg-light text-center rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h6 class="mb-0">This Week Sale and Purchase</h6>
+                            </div>
+                            <canvas id="barChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 mt-4">
+                        <div class="bg-light rounded p-4">
+                            <h6 class="mb-4">Local Insured Lives by Coverage People</h6>
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sales Chart End -->
+
+            <!-- Recent Sales Start -->
+            <div class="container-fluid px-4">
+                <div class="row">
+                    <div class="col-md-6 text-center mt-4">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-header bg-white">
+                                <h5 class="text-start ps-3 mb-0">Stock Alert</h5>
+                            </div>
+                            <div class="card-body h-100">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-secondary">Code</th>
+                                                <th class="text-secondary">Product</th>
+                                                <th class="text-secondary">Warehouse</th>
+                                                <th class="text-secondary">Quantity</th>
+                                                <th class="text-secondary">Alert Quantity</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1102324</td>
+                                                <td>Product</td>
+                                                <td>Warehouse</td>
+                                                <td>12</td>
+                                                <td><span class="badges bg-lightred ">24</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>1102324</td>
+                                                <td>Product</td>
+                                                <td>Warehouse</td>
+                                                <td>12</td>
+                                                <td><span class="badges bg-lightred">24</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>1102324</td>
+                                                <td>Product</td>
+                                                <td>Warehouse</td>
+                                                <td>12</td>
+                                                <td><span class="badges bg-lightred">24</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>1102324</td>
+                                                <td>Product</td>
+                                                <td>Warehouse</td>
+                                                <td>12</td>
+                                                <td><span class="badges bg-lightred">24</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 text-center mt-4">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-header bg-white">
+                                <h5 class="text-start ps-3 mb-0">Total Selling Product</h5>
+                            </div>
+                            <div class="card-body h-100">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-secondary">Code</th>
+                                                <th class="text-secondary">Product</th>
+                                                <th class="text-secondary">Warehouse</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1102324</td>
+                                                <td>Product</td>
+                                                <td>Warehouse</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1102324</td>
+                                                <td>Product</td>
+                                                <td>Warehouse</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1102324</td>
+                                                <td>Product</td>
+                                                <td>Warehouse</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1102324</td>
+                                                <td>Product</td>
+                                                <td>Warehouse</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid pt-4 px-4 mt-3 mb-5">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body h-100 mt-0 pt-0">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-secondary">Refference</th>
+                                                <th class="text-secondary">Customer</th>
+                                                <th class="text-secondary">Warehouse</th>
+                                                <th class="text-secondary">Status</th>
+                                                <th class="text-secondary">Grand Total</th>
+                                                <th class="text-secondary">Paid</th>
+                                                <th class="text-secondary">Due</th>
+                                                <th class="text-secondary">Payment Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>SL_2213</td>
+                                                <td>Customer</td>
+                                                <td>Warehouse</td>
+                                                <td><span class="badges bg-lightgreen">Completed</span></td>
+                                                <td>1002</td>
+                                                <td>1002</td>
+                                                <td>1002</td>
+                                                <td><span class="badges bg-lightgreen">Completed</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>SL_2213</td>
+                                                <td>Customer</td>
+                                                <td>Warehouse</td>
+                                                <td><span class="badges bg-lightgreen">Completed</span></td>
+                                                <td>1002</td>
+                                                <td>1002</td>
+                                                <td>1002</td>
+                                                <td><span class="badges bg-lightgreen">Completed</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>SL_2213</td>
+                                                <td>Customer</td>
+                                                <td>Warehouse</td>
+                                                <td><span class="badges bg-lightgreen">Completed</span></td>
+                                                <td>1002</td>
+                                                <td>1002</td>
+                                                <td>1002</td>
+                                                <td><span class="badges bg-lightgreen">Completed</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>SL_2213</td>
+                                                <td>Customer</td>
+                                                <td>Warehouse</td>
+                                                <td><span class="badges bg-lightgreen">Completed</span></td>
+                                                <td>1002</td>
+                                                <td>1002</td>
+                                                <td>1002</td>
+                                                <td><span class="badges bg-lightgreen">Completed</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>SL_2213</td>
+                                                <td>Customer</td>
+                                                <td>Warehouse</td>
+                                                <td><span class="badges bg-lightgreen">Completed</span></td>
+                                                <td>1002</td>
+                                                <td>1002</td>
+                                                <td>1002</td>
+                                                <td><span class="badges bg-lightgreen">Completed</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>SL_2213</td>
+                                                <td>Customer</td>
+                                                <td>Warehouse</td>
+                                                <td><span class="badges bg-lightgreen">Completed</span></td>
+                                                <td>1002</td>
+                                                <td>1002</td>
+                                                <td>1002</td>
+                                                <td><span class="badges bg-lightgreen">Completed</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Recent Sales End -->
+
+    </div>
+    <!-- Content End -->
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <!-- Template Javascript -->
+    <script src="dasheets/js/main.js"></script>
+    <script>
+        var ctx = document.getElementById('barChart').getContext('2d');
+        var barChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['02 Feb', '02 Feb', '02 Feb', '02 Feb', '02 Feb', '02 Feb', '02 Feb'],
+                datasets: [{
+                    label: 'Sale',
+                    data: [12, 12, 3, 17, 28, 24, 7],
+                    backgroundColor: 'rgba(98, 95, 237, 1)', // Adjusted opacity
+                },
+                {
+                    label: 'Purchase',
+                    data: [20, 15, 5, 5, 20, 3, 10],
+                    backgroundColor: 'rgba(155, 153, 243, 1)', // Adjusted opacity
+                },
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get references to navbar toggler and sidebar
+            var navbarToggler = document.getElementById("navbar-toggler");
+            var navbarToggler2 = document.getElementById("navbar-toggler2");
+            var navbarToggler3 = document.getElementById("navbar-toggler3");
+            var navbarToggler4 = document.getElementById("navbar-toggler4");
+            var navbarToggler5 = document.getElementById("navbar-toggler5");
+            var navbarToggler6 = document.getElementById("navbar-toggler6");
+            var navbarToggler7 = document.getElementById("navbar-toggler7");
+            var product = document.getElementById("product");
+            var sale = document.getElementById("sale");
+            var purchase = document.getElementById("purchase");
+            var inventory = document.getElementById("inventory");
+            var customer = document.getElementById("customer");
+            var vendor = document.getElementById("vendor");
+            var setting = document.getElementById("setting");
+
+            // Add click event listener to navbar toggler
+            navbarToggler.addEventListener("click", function (e) {
+                e.preventDefault(); // Prevent default action of link
+
+                // Toggle the sidebar by changing its left position
+                if (product.style.display === "none") {
+                    product.style.display = "block";
+                } else {
+                    product.style.display = "none";
+                }
+
+            });
+            navbarToggler2.addEventListener("click", function (e) {
+                e.preventDefault(); // Prevent default action of link
+
+                // Toggle the sidebar by changing its left position
+                if (sale.style.display === "none") {
+                    sale.style.display = "block";
+                } else {
+                    sale.style.display = "none";
+                }
+
+            });
+            navbarToggler3.addEventListener("click", function (e) {
+                e.preventDefault(); // Prevent default action of link
+
+                // Toggle the sidebar by changing its left position
+                if (purchase.style.display === "none") {
+                    purchase.style.display = "block";
+                } else {
+                    purchase.style.display = "none";
+                }
+
+            });
+            navbarToggler4.addEventListener("click", function (e) {
+                e.preventDefault(); // Prevent default action of link
+
+                // Toggle the sidebar by changing its left position
+                if (inventory.style.display === "none") {
+                    inventory.style.display = "block";
+                } else {
+                    inventory.style.display = "none";
+                }
+
+            });
+            navbarToggler5.addEventListener("click", function (e) {
+                e.preventDefault(); // Prevent default action of link
+
+                // Toggle the sidebar by changing its left position
+                if (customer.style.display === "none") {
+                    customer.style.display = "block";
+                } else {
+                    customer.style.display = "none";
+                }
+
+            });
+            navbarToggler6.addEventListener("click", function (e) {
+                e.preventDefault(); // Prevent default action of link
+
+                // Toggle the sidebar by changing its left position
+                if (vendor.style.display === "none") {
+                    vendor.style.display = "block";
+                } else {
+                    vendor.style.display = "none";
+                }
+
+            });
+            navbarToggler7.addEventListener("click", function (e) {
+                e.preventDefault(); // Prevent default action of link
+
+                // Toggle the sidebar by changing its left position
+                if (setting.style.display === "none") {
+                    setting.style.display = "block";
+                } else {
+                    setting.style.display = "none";
+                }
+
+            });
+        });
+
+        // const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+        const yValues = [55, 49, 44, 24, 15];
+        const barColors = [
+            "rgba(155, 153, 243, 1)",
+            "rgba(132, 130, 223, 1)",
+            "rgba(116, 113, 239, 1)",
+            "rgba(98, 95, 237, 1)",
+            "rgba(76, 73, 227, 1)"
+        ];
+
+        new Chart("myChart", {
+            type: "doughnut",
+            data: {
+                // labels: xValues,
+                datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                }]
+            },
+            //   options: {
+            //     title: {
+            //       display: true,
+            //       text: "World Wide Wine Production 2018"
+            //     }
+            //   }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sale and Purchase - Dashboard</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="dasheets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid position-relative bg-white d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Sidebar Start -->
+        <div class="sidebar pb-3">
+            <nav class="navbar navbar-light">
+                <a href="dashboard.html" class="navbar-brand ms-3">
+                    <h3 class="text-primary">LOGO</h3>
+                </a>
+                <div class="navbar-nav ">
+                    <a href="dashboard.html" class="nav-item nav-link text-center">
+                        <i class="bi bi-grid fs-4"></i>
+                        <p class="pt-1 mb-0">Dashboard</p>
+                    </a>
+                    <a href="product.html" class="nav-item nav-link text-center">
+                        <i class="bi bi-box-seam fs-4"></i>
+                        <p class="pt-1 mb-0">Products</p>
+                    </a>
+                    <a href="sale.html" class="nav-item nav-link text-center">
+                        <i class="bi bi-cart fs-4"></i>
+                        <p class="pt-1 mb-0">Sales</p>
+                    </a>
+                    <a href="purchase.html" class="nav-item nav-link text-center">
+                        <i class="bi bi-file-earmark-text fs-4"></i>
+                        <p class="pt-1 mb-0">Purchase</p>
+                    </a>
+                    <a href="inventory.html" class="nav-item nav-link text-center">
+                        <i class="bi bi-bag fs-4"></i>
+                        <p class="pt-1 mb-0">Inventory</p>
+                    </a>
+                    <a href="customer.html" class="nav-item nav-link text-center">
+                        <i class="bi bi-person fs-4"></i>
+                        <p class="pt-1 mb-0">Customer</p>
+                    </a>
+                    <a href="vendor.html" class="nav-item nav-link text-center">
+                        <i class="bi bi-house fs-4"></i>
+                        <p class="pt-1 mb-0">Vendors</p>
+                    </a>
+                    <a href="report.html" class="nav-item nav-link text-center">
+                        <i class="bi bi-clipboard-data fs-4"></i>
+                        <p class="pt-1 mb-0">Report</p>
+                    </a>
+                    <a href="setting.html" class="nav-item nav-link text-center">
+                        <i class="bi bi-gear fs-4"></i>
+                        <p class="pt-1 mb-0">Setting</p>
+                    </a>
+                </div>
+            </nav>
+        </div>
+        <!-- Sidebar End -->
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <nav class="navbar navbar-expand border-bottom bg-white navbar-light sticky-top px-4 py-0">
+                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0">LOGO</h2>
+                </a>
+                <a href="#" class="sidebar-toggler text-decoration-none flex-shrink-0 align-items-center d-inline-flex">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <form class="d-none d-md-flex ms-4">
+                    <select class="form-control form-select rounded-5">
+                        <option>Select Warehouse</option>
+                        <option>Warehouse 1</option>
+                        <option>Warehouse 2</option>
+                        <option>Warehouse 3</option>
+                    </select>
+                    <!-- <input class="form-control border-0" type="search" placeholder="Search"> -->
+                </form>
+                <div class="navbar-nav align-items-center ms-auto">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                            <i class="fa fa-bell align-items-center d-inline-flex"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Profile updated</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">New user added</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Password changed</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-center">See all notifications</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img class="rounded-circle me-lg-2" src="dasheets/img/user.jpg" alt=""
+                                style="width: 40px; height: 40px;">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="profile.html" class="dropdown-item">My Profile</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                            <a href="#" class="dropdown-item">Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- Navbar End -->
+
+            <div class="container-fluid px-4">
+                <div class="p-4 bg-light my-4">
+                    <h2 class="mb-2 section-title text-center">Welcome to Sale & Purchase</h2>
+                    <p>Dear John,</p>
+                    <p>I hope this email finds you well. As part of our commitment to maintaining a productive and
+                        transparent work environment, we are sharing some essential Standard Operating Procedures (SOPs)
+                        that outline important guidelines and policies for all employees. Please take a moment to
+                        carefully
+                        review the following categories:
+                    </p>
+
+                    <div class="probation-period">
+                        <h2 class="section-heading">1. Mission:</h2>
+                        <p>At [Your Company Name], we strive to [Briefly describe your company's mission or purpose].
+                            Our team is dedicated to providing [Briefly describe the value or benefits your company
+                            offers to its members/customers].
+                        </p>
+                    </div>
+
+                    <div class="leave-policies">
+                        <h2 class="section-heading">2. Leave Policies:</h2>
+                        <ul>
+                            <li>Uninformed and unapproved absences will be treated as unpaid leave and will result in a
+                                deduction from the allocated yearly leave entitlement.</li>
+                            <li>If you intend to take a one-day or half-day leave, please ensure you submit your leave
+                                request at least one day in advance.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="attendance">
+                        <h2 class="section-heading">3. Attendance</h2>
+                        <ul>
+                            <li>Adherence to office timings is mandatory. If you arrive late, you are required to
+                                compensate
+                                by completing a full 8-hour workday.</li>
+                            <li>If unable to fulfill the full 8-hour workday, the shortfall will be considered as
+                                half-day,
+                                affecting the corresponding salary accordingly.
+                            </li>
+                            <li>Share your daily report. Failure to share your daily report will be considered as
+                                absence.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="confidentialy">
+                        <h2 class="section-heading">4. Confidentialy</h2>
+                        <ul>
+                            <li>All company-related materials are confidential.</li>
+                            <li>Unauthorized sharing of company-related materials outside the office premises may result
+                                in
+                                legal action being taken against the individual involved.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="termination">
+                        <h2 class="section-heading">5. Standards</h2>
+                        <ul>
+                            <li>During your employment, any lapse in adherence to established standards will result in
+                                immediate termination.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p>
+                            These SOPs are effective immediately, and we appreciate your attention to these guidelines.
+                            If
+                            you
+                            have any questions or need clarification on any point, please feel free to reach out to HR.
+                        </p>
+                        <p class="mb-1">Best Regards</p>
+                        <p>Sale & Purchase</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Recent Sales End -->
+    </div>
+    <!-- Content End -->
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <!-- Template Javascript -->
+    <script src="dasheets/js/main.js"></script>
+</body>
+
+</html>

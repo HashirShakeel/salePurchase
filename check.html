@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sale and Purchase - Dashboard</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Template Stylesheet -->
+    <link href="dasheets/css/style.css" rel="stylesheet">
+    <!-- <style>
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            overflow-y: auto;
+            width: 260px;
+            background: #11101d;
+            z-index: 100;
+            transition: all 0.5s ease;
+        }
+
+        .sidebar.close {
+            width: 78px;
+        }
+
+        .sidebar .logo-details {
+            height: 60px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar .logo-details i {
+            font-size: 30px;
+            color: #fff;
+            height: 50px;
+            min-width: 78px;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        .sidebar .logo-details .logo_name {
+            font-size: 22px;
+            color: #fff;
+            font-weight: 600;
+            transition: 0.3s ease;
+            transition-delay: 0.1s;
+        }
+
+        .sidebar.close .logo-details .logo_name {
+            transition-delay: 0s;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .sidebar .nav-links {
+            height: 100%;
+            padding: 30px 0 150px 0;
+            overflow: auto;
+        }
+
+        .sidebar.close .nav-links {
+            overflow: visible;
+        }
+
+        .sidebar .nav-links::-webkit-scrollbar {
+            display: none;
+        }
+
+        .sidebar .nav-links li {
+            position: relative;
+            list-style: none;
+            transition: all 0.4s ease;
+        }
+
+        .sidebar .nav-links li:hover {
+            background: #1d1b31;
+        }
+
+        .sidebar .nav-links li .iocn-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .sidebar.close .nav-links li .iocn-link {
+            display: block
+        }
+
+        .sidebar .nav-links li i {
+            height: 50px;
+            min-width: 78px;
+            text-align: center;
+            line-height: 50px;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar .nav-links li.showMenu i.arrow {
+            transform: rotate(-180deg);
+        }
+
+        .sidebar.close .nav-links i.arrow {
+            display: none;
+        }
+
+        .sidebar .nav-links li a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .sidebar .nav-links li a .link_name {
+            font-size: 18px;
+            font-weight: 400;
+            color: #fff;
+            transition: all 0.4s ease;
+        }
+
+        .sidebar.close .nav-links li a .link_name {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .sidebar .nav-links li .sub-menu {
+            padding: 6px 6px 14px 80px;
+            margin-top: -10px;
+            background: #1d1b31;
+            display: none;
+        }
+
+        .sidebar .nav-links li.showMenu .sub-menu {
+            display: block;
+        }
+
+        .sidebar .nav-links li .sub-menu a {
+            color: #fff;
+            font-size: 15px;
+            padding: 5px 0;
+            white-space: nowrap;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar .nav-links li .sub-menu a:hover {
+            opacity: 1;
+        }
+
+        .sidebar.close .nav-links li .sub-menu {
+            position: absolute;
+            left: 100%;
+            top: -10px;
+            margin-top: 0;
+            padding: 10px 20px;
+            border-radius: 0 6px 6px 0;
+            opacity: 0;
+            display: block;
+            pointer-events: none;
+            transition: 0s;
+        }
+
+        .sidebar.close .nav-links li:hover .sub-menu {
+            top: 0;
+            opacity: 1;
+            pointer-events: auto;
+            transition: all 0.4s ease;
+        }
+
+        .sidebar .nav-links li .sub-menu .link_name {
+            display: none;
+        }
+
+        .sidebar.close .nav-links li .sub-menu .link_name {
+            font-size: 18px;
+            opacity: 1;
+            display: block;
+        }
+
+        .sidebar .nav-links li .sub-menu.blank {
+            opacity: 1;
+            pointer-events: auto;
+            padding: 3px 20px 6px 16px;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .sidebar .nav-links li:hover .sub-menu.blank {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .sidebar .profile-details {
+            position: fixed;
+            bottom: 0;
+            width: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #1d1b31;
+            padding: 12px 0;
+            transition: all 0.5s ease;
+        }
+
+        .sidebar.close .profile-details {
+            background: none;
+        }
+
+        .sidebar.close .profile-details {
+            width: 78px;
+        }
+
+        .sidebar .profile-details .profile-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar .profile-details img {
+            height: 52px;
+            width: 52px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin: 0 14px 0 12px;
+            background: #1d1b31;
+            transition: all 0.5s ease;
+        }
+
+        .sidebar.close .profile-details img {
+            padding: 10px;
+        }
+
+        .sidebar .profile-details .profile_name,
+        .sidebar .profile-details .job {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .sidebar.close .profile-details i,
+        .sidebar.close .profile-details .profile_name,
+        .sidebar.close .profile-details .job {
+            display: none;
+        }
+
+        .sidebar .profile-details .job {
+            font-size: 12px;
+        }
+
+        .home-section {
+            position: relative;
+            background: #E4E9F7;
+            height: 100vh;
+            left: 260px;
+            width: calc(100% - 260px);
+            transition: all 0.5s ease;
+            padding: 12px;
+        }
+
+        .sidebar.close~.home-section {
+            left: 78px;
+            width: calc(100% - 78px);
+        }
+
+        .home-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .home-section .home-content .bx-menu,
+        .home-section .home-content .text {
+            color: #11101d;
+            font-size: 35px;
+        }
+
+        .home-section .home-content .bx-menu {
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .home-section .home-content .text {
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        @media screen and (max-width: 400px) {
+            .sidebar {
+                width: 240px;
+            }
+
+            .sidebar.close {
+                width: 78px;
+            }
+
+            .sidebar .profile-details {
+                width: 240px;
+            }
+
+            .sidebar.close .profile-details {
+                background: none;
+            }
+
+            .sidebar.close .profile-details {
+                width: 78px;
+            }
+
+            .home-section {
+                left: 240px;
+                width: calc(100% - 240px);
+            }
+
+            .sidebar.close~.home-section {
+                left: 78px;
+                width: calc(100% - 78px);
+            }
+        }
+    </style> -->
+    <style>
+        #menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        #menu li {
+            position: relative;
+            margin: 0;
+            font-size: 12px;
+            padding: 0;
+        }
+
+        #menu li ul {
+            opacity: 0;
+            height: 0px;
+        }
+
+        #menu li a {
+            position: relative;
+            display: block;
+            padding: 13px 20px;
+            color: #FFFFFF;
+            white-space: nowrap;
+            z-index: 2;
+            font-size: 1.12em;
+            text-align: center;
+            font-family: 'Carrois Gothic', sans-serif;
+        }
+
+        #menu li a:hover {
+            color: #fdbb30;
+            transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
+        }
+
+        #menu li.active>a {
+            background-color: #2b303a;
+            color: #ffffff;
+        }
+
+        #menu ul li {
+            background-color: #202121;
+        }
+
+        #menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #menu li ul {
+            position: absolute;
+            visibility: hidden;
+            left: 100%;
+            top: 20px;
+            background-color: #2b303a;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.1s linear;
+            border-top: 1px solid rgba(69, 74, 84, 0.7);
+        }
+
+        #menu li:hover>ul {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        #menu li li ul {
+            right: 100%;
+            visibility: hidden;
+            top: -1px;
+            opacity: 0;
+            transition: opacity 0.1s linear;
+        }
+
+        #menu li li:hover ul {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        #menu .fa {
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            display: block;
+        }
+
+        .menu {
+            padding: 4.2em 0em 0em 0em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid position-relative bg-white d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Sidebar Start -->
+        <div class="bg-dark close">
+            <ul id="menu">
+                <li id="menu-home"><a href="index.html"><i class="fa fa-tachometer"></i><span>Dashboard</span></a>
+                </li>
+                <li><a href="#"><i class="fa fa-cogs"></i><span>Components</span><span class="fa fa-angle-right"
+                            style="float: right"></span></a>
+                    <ul>
+                        <li><a href="grids.html">Grids</a></li>
+                        <li><a href="portlet.html">Portlets</a></li>
+                    </ul>
+                </li>
+                <li id="menu-comunicacao"><a href="#"><i class="fa fa-book nav_icon"></i><span>Element</span><span
+                            class="fa fa-angle-right" style="float: right"></span></a>
+                    <ul id="menu-comunicacao-sub">
+                        <li id="menu-mensagens" style="width: 120px"><a href="buttons.html">Buttons</a>
+                        </li>
+                        <li id="menu-arquivos"><a href="typography.html">Typography</a></li>
+                        <li id="menu-arquivos"><a href="icons.html">Icons</a></li>
+                    </ul>
+                </li>
+                <li><a href="maps.html"><i class="fa fa-map-marker"></i><span>Maps</span></a></li>
+                <li id="menu-academico"><a href="#"><i class="fa fa-file-text"></i><span>Pages</span><span
+                            class="fa fa-angle-right" style="float: right"></span></a>
+                    <ul id="menu-academico-sub">
+                        <li id="menu-academico-boletim"><a href="login.html">Login</a></li>
+                        <li id="menu-academico-avaliacoes"><a href="signup.html">Sign Up</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="charts.html"><i class="fa fa-bar-chart"></i><span>Charts</span></a></li>
+                <li><a href="#"><i class="fa fa-envelope"></i><span>Mailbox</span><span class="fa fa-angle-right"
+                            style="float: right"></span></a>
+                    <ul id="menu-academico-sub">
+                        <li id="menu-academico-avaliacoes"><a href="inbox.html">Inbox</a></li>
+                        <li id="menu-academico-boletim"><a href="inbox-details.html">Compose email</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa fa-cog"></i><span>System</span><span class="fa fa-angle-right"
+                            style="float: right"></span></a>
+                    <ul id="menu-academico-sub">
+                        <li id="menu-academico-avaliacoes"><a href="404.html">404</a></li>
+                        <li id="menu-academico-boletim"><a href="blank.html">Blank</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa fa-shopping-cart"></i><span>E-Commerce</span><span
+                            class="fa fa-angle-right" style="float: right"></span></a>
+                    <ul id="menu-academico-sub">
+                        <li id="menu-academico-avaliacoes"><a href="product.html">Product</a></li>
+                        <li id="menu-academico-boletim"><a href="price.html">Price</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- <div class="logo-details">
+                <i class='bx bxl-c-plus-plus'></i>
+                <span class="logo_name">CodingLab</span>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="#">
+                        <i class='bx bx-grid-alt'></i>
+                        <span class="link_name">Dashboard</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Category</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-grid-alt'></i>
+                        <span class="link_name">Dashboard</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Category</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-grid-alt'></i>
+                        <span class="link_name">Dashboard</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Category</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-grid-alt'></i>
+                        <span class="link_name">Dashboard</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Category</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-grid-alt'></i>
+                        <span class="link_name">Dashboard</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Category</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-grid-alt'></i>
+                        <span class="link_name">Dashboard</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Category</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-grid-alt'></i>
+                        <span class="link_name">Dashboard</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Category</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-grid-alt'></i>
+                        <span class="link_name">Dashboard</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Category</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-grid-alt'></i>
+                        <span class="link_name">Dashboard</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Category</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-grid-alt'></i>
+                        <span class="link_name">Dashboard</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Category</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-grid-alt'></i>
+                        <span class="link_name">Dashboard</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Category</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="iocn-link">
+                        <a href="#">
+                            <i class='bx bx-collection'></i>
+                            <span class="link_name">Category</span>
+                        </a>
+                        <i class='bx bxs-chevron-down arrow'></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Category</a></li>
+                        <li><a href="#">HTML & CSS</a></li>
+                        <li><a href="#">JavaScript</a></li>
+                        <li><a href="#">PHP & MySQL</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="iocn-link">
+                        <a href="#">
+                            <i class='bx bx-book-alt'></i>
+                            <span class="link_name">Posts</span>
+                        </a>
+                        <i class='bx bxs-chevron-down arrow'></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Posts</a></li>
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Login Form</a></li>
+                        <li><a href="#">Card Design</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-pie-chart-alt-2'></i>
+                        <span class="link_name">Analytics</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Analytics</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-line-chart'></i>
+                        <span class="link_name">Chart</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Chart</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="iocn-link">
+                        <a href="#">
+                            <i class='bx bx-plug'></i>
+                            <span class="link_name">Plugins</span>
+                        </a>
+                        <i class='bx bxs-chevron-down arrow'></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Plugins</a></li>
+                        <li><a href="#">UI Face</a></li>
+                        <li><a href="#">Pigments</a></li>
+                        <li><a href="#">Box Icons</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-compass'></i>
+                        <span class="link_name">Explore</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Explore</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-history'></i>
+                        <span class="link_name">History</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">History</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-cog'></i>
+                        <span class="link_name">Setting</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Setting</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="profile-details">
+                        <div class="profile-content">
+                            <img src="image/profile.jpg" alt="profileImg">
+                        </div>
+                        <div class="name-job">
+                            <div class="profile_name">Prem Shahi</div>
+                            <div class="job">Web Desginer</div>
+                        </div>
+                        <i class='bx bx-log-out'></i>
+                    </div>
+                </li>
+            </ul> -->
+        </div>
+
+        <!-- Sidebar End -->
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <nav class="navbar navbar-expand border-bottom bg-white navbar-light sticky-top px-4 py-0">
+                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0">LOGO</h2>
+                </a>
+                <a href="#" class="sidebar-toggler text-decoration-none flex-shrink-0 align-items-center d-inline-flex">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <form class="d-none d-md-flex ms-4">
+                    <select class="form-control form-select rounded-5">
+                        <option>Select Warehouse</option>
+                        <option>Warehouse 1</option>
+                        <option>Warehouse 2</option>
+                        <option>Warehouse 3</option>
+                    </select>
+                    <!-- <input class="form-control border-0" type="search" placeholder="Search"> -->
+                </form>
+                <div class="navbar-nav align-items-center ms-auto">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                            <i class="fa fa-bell align-items-center d-inline-flex"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Profile updated</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">New user added</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Password changed</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-center">See all notifications</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img class="rounded-circle me-lg-2" src="dasheets/img/user.jpg" alt=""
+                                style="width: 40px; height: 40px;">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="profile.html" class="dropdown-item">My Profile</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                            <a href="#" class="dropdown-item">Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- Navbar End -->
+
+            <!-- Sale & Revenue Start -->
+            <div class="container-fluid px-4">
+                <div class="row">
+                    <div class="col-md-6 col-xl-3 mt-4">
+                        <div class="shadow border rounded d-flex align-items-center p-4">
+                            <img src="dasheets/img/content-sale.svg" class="img-fluid text-center" alt="">
+                            <div class="ms-3">
+                                <p class="mb-1 fw-bold fs-6">Sale</p>
+                                <h6 class="mb-0 sales-amount">1000$</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3 mt-4">
+                        <div class="shadow border rounded d-flex align-items-center p-4">
+                            <img src="dasheets/img/content-bag.svg" class="img-fluid text-center" alt="">
+                            <div class="ms-3">
+                                <p class="mb-1 fw-bold fs-6">Purchase</p>
+                                <h6 class="mb-0 sales-amount">1000$</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3 mt-4">
+                        <div class="shadow border rounded d-flex align-items-center p-4">
+                            <img src="dasheets/img/content-right-arrow.svg" class="img-fluid text-center" alt="">
+                            <div class="ms-3">
+                                <p class="mb-1 fw-bold fs-6">Sales Return</p>
+                                <h6 class="mb-0 sales-amount">1000$</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3 mt-4">
+                        <div class="shadow border rounded d-flex align-items-center p-4">
+                            <img src="dasheets/img/content-left-arrow.svg" class="img-fluid text-center" alt="">
+                            <div class="ms-3">
+                                <p class="mb-1 fw-bold fs-6">Purchase Return</p>
+                                <h6 class="mb-0 sales-amount">1000$</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sale & Revenue End -->
+
+            <!-- Sales Chart Start -->
+            <div class="container-fluid px-4">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 mt-4">
+                        <div class="bg-light text-center rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h6 class="mb-0">This Week Sale and Purchase</h6>
+                            </div>
+                            <canvas id="barChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 mt-4">
+                        <div class="bg-light rounded p-4">
+                            <h6 class="mb-4">Local Insured Lives by Coverage People</h6>
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sales Chart End -->
+
+            <!-- Recent Sales Start -->
+            <div class="container-fluid px-4">
+                <div class="row">
+                    <div class="col-md-6 text-center mt-4">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-header bg-white">
+                                <h5 class="text-start ps-3 mb-0">Stock Alert</h5>
+                            </div>
+                            <div class="card-body h-100">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-secondary">Code</th>
+                                                <th class="text-secondary">Product</th>
+                                                <th class="text-secondary">Warehouse</th>
+                                                <th class="text-secondary">Quantity</th>
+                                                <th class="text-secondary">Alert Quantity</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1102324</td>
+                                                <td>Product</td>
+                                                <td>Warehouse</td>
+                                                <td>12</td>
+                                                <td><span class="badges bg-lightred ">24</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>1102324</td>
+                                                <td>Product</td>
+                                                <td>Warehouse</td>
+                                                <td>12</td>
+                                                <td><span class="badges bg-lightred">24</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>1102324</td>
+                                                <td>Product</td>
+                                                <td>Warehouse</td>
+                                                <td>12</td>
+                                                <td><span class="badges bg-lightred">24</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>1102324</td>
+                                                <td>Product</td>
+                                                <td>Warehouse</td>
+                                                <td>12</td>
+                                                <td><span class="badges bg-lightred">24</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 text-center mt-4">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-header bg-white">
+                                <h5 class="text-start ps-3 mb-0">Total Selling Product</h5>
+                            </div>
+                            <div class="card-body h-100">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-secondary">Code</th>
+                                                <th class="text-secondary">Product</th>
+                                                <th class="text-secondary">Warehouse</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1102324</td>
+                                                <td>Product</td>
+                                                <td>Warehouse</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1102324</td>
+                                                <td>Product</td>
+                                                <td>Warehouse</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1102324</td>
+                                                <td>Product</td>
+                                                <td>Warehouse</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1102324</td>
+                                                <td>Product</td>
+                                                <td>Warehouse</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid pt-4 px-4 mt-3 mb-5">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body h-100 mt-0 pt-0">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-secondary">Refference</th>
+                                                <th class="text-secondary">Customer</th>
+                                                <th class="text-secondary">Warehouse</th>
+                                                <th class="text-secondary">Status</th>
+                                                <th class="text-secondary">Grand Total</th>
+                                                <th class="text-secondary">Paid</th>
+                                                <th class="text-secondary">Due</th>
+                                                <th class="text-secondary">Payment Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>SL_2213</td>
+                                                <td>Customer</td>
+                                                <td>Warehouse</td>
+                                                <td><span class="badges bg-lightgreen">Completed</span></td>
+                                                <td>1002</td>
+                                                <td>1002</td>
+                                                <td>1002</td>
+                                                <td><span class="badges bg-lightgreen">Completed</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>SL_2213</td>
+                                                <td>Customer</td>
+                                                <td>Warehouse</td>
+                                                <td><span class="badges bg-lightgreen">Completed</span></td>
+                                                <td>1002</td>
+                                                <td>1002</td>
+                                                <td>1002</td>
+                                                <td><span class="badges bg-lightgreen">Completed</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>SL_2213</td>
+                                                <td>Customer</td>
+                                                <td>Warehouse</td>
+                                                <td><span class="badges bg-lightgreen">Completed</span></td>
+                                                <td>1002</td>
+                                                <td>1002</td>
+                                                <td>1002</td>
+                                                <td><span class="badges bg-lightgreen">Completed</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>SL_2213</td>
+                                                <td>Customer</td>
+                                                <td>Warehouse</td>
+                                                <td><span class="badges bg-lightgreen">Completed</span></td>
+                                                <td>1002</td>
+                                                <td>1002</td>
+                                                <td>1002</td>
+                                                <td><span class="badges bg-lightgreen">Completed</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>SL_2213</td>
+                                                <td>Customer</td>
+                                                <td>Warehouse</td>
+                                                <td><span class="badges bg-lightgreen">Completed</span></td>
+                                                <td>1002</td>
+                                                <td>1002</td>
+                                                <td>1002</td>
+                                                <td><span class="badges bg-lightgreen">Completed</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>SL_2213</td>
+                                                <td>Customer</td>
+                                                <td>Warehouse</td>
+                                                <td><span class="badges bg-lightgreen">Completed</span></td>
+                                                <td>1002</td>
+                                                <td>1002</td>
+                                                <td>1002</td>
+                                                <td><span class="badges bg-lightgreen">Completed</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Recent Sales End -->
+
+    </div>
+    <!-- Content End -->
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <!-- Template Javascript -->
+    <script src="dasheets/js/main.js"></script>
+
+        <script>
+            var ctx = document.getElementById('barChart').getContext('2d');
+            var barChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['02 Feb', '02 Feb', '02 Feb', '02 Feb', '02 Feb', '02 Feb', '02 Feb'],
+                    datasets: [{
+                        label: 'Sale',
+                        data: [12, 12, 3, 17, 28, 24, 7],
+                        backgroundColor: 'rgba(98, 95, 237, 1)', // Adjusted opacity
+                    },
+                    {
+                        label: 'Purchase',
+                        data: [20, 15, 5, 5, 20, 3, 10],
+                        backgroundColor: 'rgba(155, 153, 243, 1)', // Adjusted opacity
+                    },
+                    ],
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
+        <script>
+            // const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+            const yValues = [55, 49, 44, 24, 15];
+            const barColors = [
+                "rgba(155, 153, 243, 1)",
+                "rgba(132, 130, 223, 1)",
+                "rgba(116, 113, 239, 1)",
+                "rgba(98, 95, 237, 1)",
+                "rgba(76, 73, 227, 1)"
+            ];
+
+            new Chart("myChart", {
+                type: "doughnut",
+                data: {
+                    // labels: xValues,
+                    datasets: [{
+                        backgroundColor: barColors,
+                        data: yValues
+                    }]
+                },
+                //   options: {
+                //     title: {
+                //       display: true,
+                //       text: "World Wide Wine Production 2018"
+                //     }
+                //   }
+            });
+        </script>
+</body>
+
+</html>
